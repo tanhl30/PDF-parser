@@ -3,7 +3,8 @@
 ## Introduction
 PDF parsing is the processing of extracting elements from a PDF documents, most notably, text, tables and images. PDF parsing has become more relevant with the rise of LLM and the popularity of AI Chatbot, as LLM by nature is not good at extracting tables from a PDF.
 
-This repository offers three code for PDF parsing, choose the mode by setting the `table_output_mode` parameter in the `extract_pdf` function. The three modes are:
+## Features
+This repository offers three different version for PDF parsing, choose the mode by setting the `table_output_mode` parameter in the `extract_pdf` function. The three modes are:
 
 1. **Mode 1: csv** General use case
    - Extracts text, images and tables
@@ -18,8 +19,6 @@ This repository offers three code for PDF parsing, choose the mode by setting th
    - Extracts text and images, includes labeling feature
    - Uses Bedrock to generate descriptive statements for table content
    - Inserts these descriptions into the text output
-
-## Features Overview
 
 | Method/Version | csv | text | bedrock |
 |----------------|:-:|:--:|:--:|
@@ -71,3 +70,5 @@ Jul 25 : Initial release, three modes (methods) are saved in three ipynb files (
 Oct 4 : Added a new feature to take screenshot whenever table dimension is not n x n, combined all modes into one py file, renamed variable and tidy up code for better readability.   
 
 Oct 16 : Improved the bedrock prompt and max token limit.  
+
+Nov 23 : Move to public repo
