@@ -1,7 +1,7 @@
 
-# ingest-rag-documents-general
+# PDF Parser (Docker Image)
 
-This project contains the docker image that parse pdf to tables and text, as well as the CICD pipeline setup  
+This project contains the docker image that build container to parse pdf to tables and text, as well as the CICD pipeline setup  
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
@@ -22,7 +22,7 @@ The project is structured as follows:
 .
 ├── docker
 │   ├── src     
-|   |   └── pdf_parser.py       # lambda handler that extract pdf
+|   |   └── pdf_parser.py       # lambda handler that extract pdf. It is an old script, should be replaced with new pdf_parser.py
 |   |   └── requirements.txt    # required packages for the lambda image
 │   └── Dockerfile              # dockerfile for the lambda image
 ├── stacks
@@ -31,8 +31,6 @@ The project is structured as follows:
 │   └── pdfparser_stack.py      # main: lambda image creation and configuration
 │   ├── prerequisites_stack.py  # setup this to create s3 bucket, ecr repo and lambda role
 │   └── utils.py
-├── tests
-│   └── unit                    # TODO setup tests
 ├── app.py                      # app entry point
 ├── cdk.json                    # CDK app configuration
 ├── ddk.json                    # modify this file to include parameters used in resource setup in stacks
@@ -112,7 +110,7 @@ $ aws lambda update-function-code --profile <PROFILE_NAME> --function-name <lamb
 1. Open Docker Desktop app
 2. run: docker build --platform linux/amd64 -t docker-image:test .
 3. run: docker run --platform linux/amd64 -p 9000:8080 docker-image:test
-4. In a new terminal windoe, run Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"
+4. In a new terminal windoe, run ```Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"```
 
 
 
